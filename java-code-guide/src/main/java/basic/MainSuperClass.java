@@ -1,6 +1,6 @@
-package main;
+package basic;
 
-public class SuperClass {
+public class MainSuperClass {
 
     public static void main(String[] args) {
         System.out.println("Super class");
