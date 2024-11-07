@@ -1,4 +1,4 @@
-package patterns.structure_patterns.proxy.dynamic_proxy.model;
+package patterns.structure_patterns.proxy.jdk.model;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

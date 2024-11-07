@@ -1,0 +1,18 @@
+CglibAopProxy: 基于继承关系来代理, 代理类型没有实现接口
+- 基于"ASM字节码"生成库, 允许在运行时对字节码进行修改和动态生成
+- 代理对象只存在JVM中，不在spring的容器中
+- 生成的代理类继承原始类(原始类不能用final来修饰)
+
+TODO. 注意代理对象中的Autowired的属性是没有被设置的 ！
+class BeanServiceProxy extends BeanService {
+  BeanService target; // 容器中bean的原始对象，作为代理对象的属性
+
+  public void targetMethod() {
+      // 执行代理逻辑(切面方法)
+      // joinPoint.getTarget(); 拿到是"原始对象"
+
+      // 执行业务方法逻辑
+      // super.targetMethod();  一般不使用
+      target.targetMethod(); 原始bean对象经过bean完整生命周期，所有属性均有值
+  }
+}

@@ -1,4 +1,4 @@
-package patterns.structure_patterns.proxy.chain_of_resp;
+package patterns.structure_patterns.proxy.jdk.chain_of_resp;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

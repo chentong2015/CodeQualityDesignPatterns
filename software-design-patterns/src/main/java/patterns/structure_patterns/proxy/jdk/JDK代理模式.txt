@@ -1,0 +1,18 @@
+TODO. 如果被代理的类型实现了接口，则选择JdkDynamicAopProxy代理模式
+JdkDynamicAopProxy: 适用于代理的类型实现了接口, 类似于“装饰模式”
+   Proxy.newProxyInstance(classLoader, this.proxiedInterfaces, this);
+
+DefaultAopProxyFactory.createAopProxy()
+    @Override
+    public AopProxy createAopProxy(AdvisedSupport main.config) throws AopConfigException {
+   	if (!NativeDetector.inNativeImage() && (main.config.isOptimize() ||
+        	main.config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(main.config))) {
+   		Class<?> targetClass = main.config.getTargetClass();
+   		if (targetClass.isInterface() || Proxy.isProxyClass(targetClass)) {
+   			return new JdkDynamicAopProxy(main.config);
+   		}
+   		return new ObjenesisCglibAopProxy(main.config);
+   	}	else {
+   		return new JdkDynamicAopProxy(main.config);
+   	}
+}
