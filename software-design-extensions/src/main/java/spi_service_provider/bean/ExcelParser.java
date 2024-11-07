@@ -1,4 +1,4 @@
-package spi_service_provider.java_bean;
+package spi_service_provider.bean;
 
 public class ExcelParser implements IDocumentParser {
 

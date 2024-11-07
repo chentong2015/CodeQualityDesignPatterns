@@ -1,5 +1,0 @@
-# 底层数据库提供对Driver的特定实现，通过SPI进行加载
-# com.microsoft.sqlserver.jdbc.SQLServerDriver
-
-# 实现类型的全路径，随着项目的变化而动态变化
-extensions.spi.jdbc_driver.MyDBServerDriver

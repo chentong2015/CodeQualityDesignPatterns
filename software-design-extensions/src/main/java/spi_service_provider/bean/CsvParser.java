@@ -1,9 +1,9 @@
-package spi_service_provider.java_bean;
+package spi_service_provider.bean;
 
 public class CsvParser implements IDocumentParser {
 
     @Override
     public void parse() {
-        System.out.println("Parse Word");
+        System.out.println("Parse Csv");
     }
 }

@@ -1,8 +1,0 @@
-TODO. 如何设计并实现软件的插件扩展 ? 将插件集成到现有的软件中
-提供plugin api，在META-INF/services目录下配置对指定API接口的实现
-通过SPI ServiceLoader自动加载或装配service实例
-
-实战案例:
-- java.sql.Driver的加载
-- Liquibase service注入和plugin插件的扩展      => 查看源码
-- Spring boot AutoConfiguration自动装配的实现  => 查看源码
