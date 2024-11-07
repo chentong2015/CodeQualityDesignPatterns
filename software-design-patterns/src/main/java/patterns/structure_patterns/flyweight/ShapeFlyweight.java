@@ -6,11 +6,11 @@ import patterns.structure_patterns.flyweight.model.Shape;
 import java.util.HashMap;
 import java.util.Map;
 
+// 统一管理程序中一致的对象，重用对象，如果不存在则创建对象
 // Flyweight pattern is primarily used to reduce the number of objects created
 // and to decrease memory footprint and increase performance.
-
-// 统一管理程序中一致的对象，重用对象，如果不存在则创建对象
-// 应用场景
+//
+// 应用场景:
 // 1. 系统中存在大量的相似对象 / 对象象没有特定身份
 // 2. 池化技术，数据库连接池，线程池
 public class ShapeFlyweight {

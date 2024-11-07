@@ -1,7 +1,7 @@
 package patterns.structure_patterns.proxy.dynamic_proxy;
 
-import patterns.structure_patterns.proxy.dynamic_proxy.handler.AbstractInvocationHandler;
-import patterns.structure_patterns.proxy.dynamic_proxy.handler.PersonInvocationHandler;
+import patterns.structure_patterns.proxy.ProxyHelper;
+import patterns.structure_patterns.proxy.dynamic_proxy.model.PersonInvocationHandler;
 import patterns.structure_patterns.proxy.dynamic_proxy.model.Person;
 import patterns.structure_patterns.proxy.dynamic_proxy.model.PersonImpl;
 
@@ -58,16 +58,17 @@ public class JdkDynamicProxyBasic {
 
     private static Person decoratePersonSetNameMethod(Person person) {
         return (Person) Proxy.newProxyInstance(Person.class.getClassLoader(), new Class<?>[]{Person.class},
-                new AbstractInvocationHandler(person) {
-                    @Override
-                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                        if (method.getName().equals("setName")) {
-                            Object[] newArgs = {"proxy name"};
-                            return method.invoke(getTarget(), newArgs);
-                        } else {
-                            return method.invoke(getTarget(), args);
-                        }
-                    }
-                });
+           new AbstractInvocationHandler(person) {
+               @Override
+               public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                   if (method.getName().equals("setName")) {
+                       Object[] newArgs = {"proxy name"};
+                       return method.invoke(getTarget(), newArgs);
+                   } else {
+                       return method.invoke(getTarget(), args);
+                   }
+               }
+           }
+        );
     }
 }

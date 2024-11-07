@@ -1,6 +1,7 @@
 package patterns.structure_patterns.proxy.dynamic_proxy;
 
-import patterns.structure_patterns.proxy.dynamic_proxy.handler.PersonInvocationHandler;
+import patterns.structure_patterns.proxy.ProxyHelper;
+import patterns.structure_patterns.proxy.dynamic_proxy.model.PersonInvocationHandler;
 import patterns.structure_patterns.proxy.dynamic_proxy.model.Person;
 import patterns.structure_patterns.proxy.dynamic_proxy.model.PersonImpl;
 

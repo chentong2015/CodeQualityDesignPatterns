@@ -1,4 +1,4 @@
-package patterns.structure_patterns.proxy.dynamic_proxy;
+package patterns.structure_patterns.proxy;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

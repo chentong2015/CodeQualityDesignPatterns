@@ -1,4 +1,4 @@
-package patterns.structure_patterns.proxy.dynamic_proxy.handler;
+package patterns.structure_patterns.proxy.dynamic_proxy.model;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -22,11 +22,8 @@ public class PersonInvocationHandler<T> implements InvocationHandler {
         System.out.println("方法名: " + method.getName());
         System.out.println("方法返回类型：" + method.getReturnType());
         System.out.println("接口方法入参数组: " + (args == null ? "null" : Arrays.toString(args)));
-        
-        TimeMonitorUtil.start();
         Thread.sleep(10);
         Object result = method.invoke(target, args); // 调用被代理对象的原始方法
-        TimeMonitorUtil.finish(method.getName());
         return result;
     }
 }
