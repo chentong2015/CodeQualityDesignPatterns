@@ -1,7 +1,7 @@
 package base_solid_principle.lsp;
 
-import lsp.demo1.MyRectangle;
-import lsp.demo1.MySquare;
+import base_solid_principle.lsp.demo1.MyRectangle;
+import base_solid_principle.lsp.demo1.MySquare;
 
 // LSP 替换原则: 母类能够被子类替换，而不造成问题
 // Liskov Substitution Principle
