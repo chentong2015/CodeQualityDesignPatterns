@@ -1,5 +1,5 @@
-- SonarLint Plugin 本地IDE即时代码检测插件
-- SonarQube Server 提交后master branch通过更全Rules验证/自定义Rules
+SonarLint Plugin 本地IDE即时代码检测插件
+SonarQube Server 提交后master branch通过更全Rules验证/自定义Rules
 
 SonarQube代码检测逻辑:
 SonarQube针对不同项目(Create Project)代码进行分析，支持检测同一项目的不同branch
