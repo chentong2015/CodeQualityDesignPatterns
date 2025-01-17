@@ -1,17 +1,19 @@
-TODO: 定义Helper辅助类/Util工具类的实战场景
-将程序中公共/共享的操作提取到一个类型中来关闭
+TODO: Helper辅助类 & Util工具类
+将程序中公共/共享的操作提取到类型中管理
 创建的类型对象在程序启动后不变, 类型中static对应"单列模式"
-提供一个API接口, 将系统中面向某一面的功能隔离出来, 类似"AOP模型"
+提供API接口将系统中面向某面的功能隔离出来, 类似"AOP模型"
 
-Helper/Util类定义规范:
-1. 提供private私有构造器来强化"不可实例化"
+TODO. Helper/Util类定义规范
+1. 定义private私有构造器来强化"不可实例化"
     - 私有构造器也表示不能对该类型进行扩展
 2. 标记final, 类型不可以再被继承
     - 如果子类需要实例化，但调不到父类的私有构造器
     - 如果子类不需要实例化，则有需要添加private私有构造器，不合理
 3. 类型的成员全部是private static
 4. 对外提供功能性的方法标记成public static
+5. 类型定义的静态方法参数可标记成final
 
+// Helper工具类型标准案例
 public final class XxxHelper {
 
     private static String innerName;
@@ -21,5 +23,8 @@ public final class XxxHelper {
     }
 
     public static void xxx() {
+    }
+
+    public static void test(final int value) {
     }
 }

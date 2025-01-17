@@ -8,13 +8,13 @@ public class JavaUtilHelper {
     private JavaUtilHelper() {
     }
 
+    // 静态方法通过内部创建的实例对象来调用实例方法
     public static void test1() {
         UTIL_HELPER.test2();
     }
 
-    // 由于当前类型具有私有的构造器，因此无法在类型外部实例化
-    // 无论当前方法具有怎样的可访问性，都无法被外部调用
-    // 内部的静态方法必须通过内部的实例对象来调用该方法
+    // 私有的构造器约束了以下实例方法不能被外部调用到
+    // 与改实例方法定义的可访问性无关
     public void test2() {
         System.out.println("test2");
     }
