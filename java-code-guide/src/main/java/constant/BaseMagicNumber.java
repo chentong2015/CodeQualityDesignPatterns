@@ -1,4 +1,4 @@
-package constants;
+package constant;
 
 public class BaseMagicNumber {
 

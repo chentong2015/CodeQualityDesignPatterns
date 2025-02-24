@@ -13,33 +13,36 @@ import java.util.Map;
 public final class MyImmutableClass {
 
     // 1. 没有提供fields的setter方法，使用final关键字保证它是不可变的
-    //    不需要声明成final static
-    private final int locationID;
     private final String description;
     private final Map<String, Integer> exits;
+    private final byte[] bytesSalt;
 
     // TODO. 实例的信息应该在创建对象的时候提供，并在对象的整个声明周期内保持不变
-    public MyImmutableClass(int locationID, String description, Map<String, Integer> exits) {
-        this.locationID = locationID;
+    public MyImmutableClass(String description, Map<String, Integer> exits, byte[] bytesSalt) {
+        // String类型本身是不可变类型，直接赋值不影响对象的不可变性
         this.description = description;
+
         // (@NotNull) 这里参数不能为空
-        // 2. 不直接存储外部传递进来的引用: 做一个深度拷贝的效果
+        // 不直接存储外部传递进来的引用: 做一个深度拷贝的效果
         this.exits = new HashMap<>(exits);
-        this.exits.put("Q", 0);
+
+        // 获取参数字节数组的拷贝，而非直接使用引用
+        this.bytesSalt = bytesSalt.clone();
     }
 
-    // 3. 标记final：不能被重写的方法
-    // 4. 不将可变对象的引用暴露到外部
+    // 标记final：不能被重写的方法
+    // 不将可变对象的引用暴露到外部
     public final Map<String, Integer> getExits() {
         return new HashMap<>(this.exits);
     }
 
-    // 5. 可以构建getter方法
-    public int getLocationID() {
-        return locationID;
-    }
-
+    // 可以构建getter方法
     public String getDescription() {
         return description;
+    }
+
+    // 对外返回字节数组的拷贝，使其再外部无法修改该对象的属性
+    public byte[] getBytesSalt() {
+        return bytesSalt.clone();
     }
 }

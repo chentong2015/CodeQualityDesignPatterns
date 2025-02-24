@@ -1,4 +1,4 @@
-package object;
+package to_string;
 
 // TODO. 始终要覆盖toString()
 // Object默认返回类名+散列码

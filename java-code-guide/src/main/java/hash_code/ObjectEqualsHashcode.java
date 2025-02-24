@@ -1,10 +1,14 @@
-package object;
+package hash_code;
 
 // .equals() 默认比较对象的reference引用
 // 通过Override来实现值的比较，变成"值类"
 public class ObjectEqualsHashcode {
 
     private final String name = "name id";
+
+    public String getName() {
+        return name;
+    }
 
     // TODO. 重写equals()原则: 类型具有特定的逻辑相等的概念，而且它的superclass没有重写equals()
     // - 自反性, 可逆性, 传递性, 对称性, 一致性(多次调用，同样结果)
@@ -40,10 +44,6 @@ public class ObjectEqualsHashcode {
         return name.hashCode();  // 只用类型的field的hashCode来作为整个类型的hashCode
         // return this.name.hashCode() + 1; 通过添加偏移量来取解决上面的问题
         // return 0; 造成没有对象都具有相同的散列码
-    }
-
-    public String getName() {
-        return name;
     }
 }
 

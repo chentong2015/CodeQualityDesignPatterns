@@ -12,7 +12,7 @@ TODO. Immutable Class 实战运用场景
 - 状态始终不变，不存在临时不一致的可能性
 
 Expose programs inner objects to external developers who don't have access to the source code
-they can't know implications of changes they might make to object
+they can't know implications of changes they might make to clone
 1. 软件提供第三方扩展和插件
 2. 浏览器支持第三方插件
 3. Office Excel provides access to its objects to write in VBA

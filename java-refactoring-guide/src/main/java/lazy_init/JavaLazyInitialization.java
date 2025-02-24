@@ -1,4 +1,4 @@
-package lazy_initialization;
+package lazy_init;
 
 // 正确的初始化优先于延迟初始化(在需要域的值时才进行初始化)
 public class JavaLazyInitialization {

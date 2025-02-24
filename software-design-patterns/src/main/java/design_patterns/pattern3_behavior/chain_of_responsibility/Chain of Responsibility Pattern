@@ -13,5 +13,5 @@ TODO. 该模式解耦了不同的类型和请求接收者之间的耦合，不�
 The chain of responsibility pattern creates a chain of receiver objects for a request.
 This pattern decouples sender and receiver of a request based on type of request.
 In this pattern, normally each receiver contains reference to another receiver.
-If one object cannot handle the request then it passes the same to the next receiver and so on
+If one clone cannot handle the request then it passes the same to the next receiver and so on
 

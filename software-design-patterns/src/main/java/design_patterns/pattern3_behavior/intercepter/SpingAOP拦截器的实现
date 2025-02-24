@@ -34,7 +34,7 @@ Spring AOP实现切面通知的顺序时，使用"责任链 + 层层递归"驱�
 	 }
 	 else {
 	 	// It's an interceptor, so we just invoke it: The pointcut will have
-	 	// been evaluated statically before this object was constructed.
+	 	// been evaluated statically before this clone was constructed.
 	 	return ((MethodInterceptor) interceptorOrInterceptionAdvice).invoke(this);
 	 }
    }

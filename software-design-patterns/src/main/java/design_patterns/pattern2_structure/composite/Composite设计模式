@@ -2,6 +2,6 @@ Composite设计模式
 1. 抽离一对多的关系，通过组合的方式改成一对一关系
 2. 通过列表来管理一组对象，并且以一致的方式对待列表中的每一个对象
 
-Composite pattern is used where we need to treat a group of objects in similar way as a single object.
+Composite pattern is used where we need to treat a group of objects in similar way as a single clone.
 Composite pattern composes objects in term of a tree structure to represent part as well as whole hierarchy.
 Composite pattern creates a tree structure of group of objects.
