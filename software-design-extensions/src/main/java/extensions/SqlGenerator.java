@@ -1,4 +1,4 @@
-package demo;
+package extensions;
 
 public interface SqlGenerator {
 
