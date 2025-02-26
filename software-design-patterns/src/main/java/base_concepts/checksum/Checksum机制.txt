@@ -1,0 +1,3 @@
+TODO. 软件的Checksum设计机制(Creation, Modification, Duplicate)
+通过checksum机制可以判断数据的更新历史，避免在刷新时对历史数据的修改
+通过checksum机制提高Query的执行性能，使数据得到正确的更新
