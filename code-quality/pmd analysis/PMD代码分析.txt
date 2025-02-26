@@ -1,7 +1,7 @@
-PMD Source Code analyser:
-Best practices + Style + Design
+PMD: Source Code analyser + Static Code analyser
 提供Maven插件，在项目构建阶段检测代码
 
+Best practices + Style + Design
 - https://github.com/pmd/pmd
 - https://pmd.github.io/pmd/pmd_rules_java.html
 - https://pmd.github.io/pmd/pmd_userdocs_tools_maven.html

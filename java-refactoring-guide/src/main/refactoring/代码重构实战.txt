@@ -1,0 +1,10 @@
+TODO. 代码重构设计
+https://refactoring.com/catalog/
+https://martinfowler.com/tags/refactoring.html
+https://martinfowler.com/articles/replaceThrowWithNotification.html
+https://sourcemaking.com/design-patterns-and-tips
+
+TODO. 代码重构的评价体系:
+- 代码整洁清晰，逻辑合理，统一异常管理
+- 差分放个方法包含的多个逻辑功能
+- 功能和模块化的查分/解耦

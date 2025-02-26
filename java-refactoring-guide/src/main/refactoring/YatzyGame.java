@@ -1,9 +1,5 @@
-package edf;
-
 import java.util.Arrays;
 
-// 代码重构的评价体系: 功能和模块化的查分/解耦
-//
 // https://sammancoaching.org/kata_descriptions/yatzy.html
 public class Yatzy {
 
