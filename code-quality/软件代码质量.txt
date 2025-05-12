@@ -3,5 +3,6 @@
 - Java Style Guide (https://google.github.io/styleguide/)
 - Effective Java (https://github.com/jbloch/effective-java-3e-source-code)
 
-软件的质量: 架构设计 + 代码的质量
-代码的质量: 代码风格(整洁性/被理解阅读 + 可维护性 + 可扩展性)
+架构设计 + 代码的质量 = 软件的质量
+1. 代码风格(整洁性/被理解阅读 + 可维护性 + 可扩展性)
+2. 最佳实践(必要的注释/解释业务逻辑 + 减少Warning提示)
