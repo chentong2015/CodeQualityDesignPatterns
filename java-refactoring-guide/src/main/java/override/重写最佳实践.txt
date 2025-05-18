@@ -1,0 +1,36 @@
+TODO. Override时始终需要考虑对父类方法代码的重用
+1. 对super method的结果进行修改或补充，可以直接调用父类的方法
+   @Override
+   public Warnings warn(Statement statement, String value) {
+      Warnings warnings = super.warn(statement, value);
+      if(value.contains("error") {
+         warnings.addWarning("creation failed");
+      }
+      return warnings;
+   }
+
+2. 对super method的结果进行修改或补充, 但父类方法返回对象的属性不能修改, 则考虑重新创建结果对象
+   @Override
+   public Warnings warn(Statement statement, String value) {
+      Warnings warnings = super.warn(statement, value);
+      if(value.contains("error") {
+         return new Warnings(statement, value,,,)
+      }
+      return warnings;
+   }
+
+3. 对super method的逻辑过程进行重写，复制父类方法源码进行修改
+   @Override
+   public Warnings warn(Statement statement, String value) {
+      Warnings warnings;
+      // copy source codes of super method
+      return warnings;
+   }
+
+TODO. 特别注意Override和super同时使用，可能逻辑被重复执行并且很难Debug
+4. public Warnings warn(Statement statement, String value) {
+     super.warn(statement, value);
+
+     // copy source codes of super method
+     return warnings;
+   }
