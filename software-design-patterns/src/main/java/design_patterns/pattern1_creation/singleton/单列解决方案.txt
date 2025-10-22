@@ -1,45 +1,4 @@
-TODO. Double-checked locking should not be used
-https://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
-https://docs.oracle.com/javase/specs/jls/se7/html/jls-12.html#jls-12.4
-https://en.wikipedia.org/wiki/Double-checked_locking#Usage_in_Java
-
-Double-checked locking is the practice of checking a lazy-initialized clone’s state
-both before and after a synchronized block is entered to determine whether or not to initialize the clone.
-It does not work reliably in a platform-independent manner without additional synchronization for mutable
-instances of anything other than float or int.
-
-Using double-checked locking for the lazy initialization of any other type of primitive
-or mutable clone risks a second thread using an uninitialized or partially initialized member
-while the first thread is still creating it, and crashing the program.
-
-There are multiple ways to fix this
-1. Not use double checked locking, and synchronize the whole method instead.
-   With early versions of the JVM, synchronizing the whole method was generally advised against for performance reasons.
-   But synchronized performance has improved a lot in newer JVMs, so this is now a preferred solution.
-2. Use an inner static class to hold the reference instead.
-   Inner static classes are guaranteed to load lazily.
-
-
-TODO: 传统的双检锁会有于延迟初始化造成不可靠情况
-@NotThreadSafe
-public class DoubleCheckedLocking {
-    private static Resource resource;
-
-    public static Resource getInstance() {
-        if (resource == null) {
-            synchronized (DoubleCheckedLocking.class) {
-                if (resource == null)
-                    resource = new Resource();
-            }
-        }
-        return resource;
-    }
-
-    static class Resource {
-    }
-}
-
-TODO: 方案1 直接加锁处理，新版JVM对性能的影响很小
+TODO: 1. 直接加锁处理，新版JVM对性能的影响很小
 @ThreadSafe
 public class SafeLazyInitialization {
     private static Resource resource;
@@ -54,12 +13,11 @@ public class SafeLazyInitialization {
     }
 }
 
-TODO. 方案2 With inner static holder
+TODO. 2. With inner static holder 保证延迟加载
 @ThreadSafe
 public class ResourceFactory {
 
-    // This class will be lazily initialised
-    // 加载延迟，在第一次使用之前不会执行
+    // This class will be lazily initialised 只要不调用static方法则不会创建实例
     private static class ResourceHolder {
         public static Resource resource = new Resource();
     }
@@ -72,21 +30,21 @@ public class ResourceFactory {
     }
 }
 
-TODO. 方案3 Using "volatile"
+TODO. 3. Using "volatile"
 class ResourceFactory {
   private volatile Resource resource;
 
   public Resource getResource() {
-    Resource localResource = resource;
-    if (localResource == null) {
-      synchronized (this) {
-        localResource = resource;
-        if (localResource == null) {
-          resource = localResource = new Resource();
+     Resource localResource = resource;
+     if (localResource == null) {
+        synchronized (this) {
+           localResource = resource;
+           if (localResource == null) {
+              localResource = new Resource();
+           }
         }
-      }
-    }
-    return localResource;
+     }
+     return localResource;
   }
 
   static class Resource {
