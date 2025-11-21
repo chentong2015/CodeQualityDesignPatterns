@@ -4,15 +4,12 @@ public abstract class TemplateClass {
 
     private boolean isDone = false;
 
+    // 在继承类中自定义的实现细节
     protected abstract void init();
 
     protected abstract void work();
 
     protected abstract void cleanup();
-
-    protected void setDone() {
-        isDone = true;
-    }
 
     // 通用的执行逻辑
     public void run() {
@@ -21,5 +18,9 @@ public abstract class TemplateClass {
             work();
         }
         cleanup();
+    }
+
+    protected void setDone() {
+        isDone = true;
     }
 }
