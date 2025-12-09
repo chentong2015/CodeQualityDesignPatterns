@@ -1,4 +1,5 @@
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -11,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ResourceHelper {
 
@@ -22,22 +25,22 @@ public class ResourceHelper {
         URL resource = this.getClass().getClassLoader().getResource(cleanPath);
         if (resource != null) {
             URI uri = resource.toURI();
-            log.debug("URI: {}", uri);
+            // log.debug("URI: {}", uri);
 
             // Load content from the specific file classpath
             try {
                 return new String(Files.readAllBytes(Paths.get(uri)), StandardCharsets.UTF_8);
             } catch (Exception e) {
-                log.debug(MESSAGE, classpath, e);
+                // log.debug(MESSAGE, classpath, e);
             }
 
             // Load from the specific zip file path
             try (FileSystem zipFs = FileSystems.newFileSystem(uri, Collections.singletonMap("create", "true"))) {
                 Path path = zipFs.getPath(DELIMITER + cleanPath);
-                log.debug("attempting to read {} in {}", path, zipFs);
+                // log.debug("attempting to read {} in {}", path, zipFs);
                 return new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
             } catch (Exception e) {
-                log.debug(MESSAGE, classpath, e);
+                // log.debug(MESSAGE, classpath, e);
             }
 
             // Load Content by Stream
@@ -50,7 +53,7 @@ public class ResourceHelper {
                 }
                 return new String(out.toByteArray(), StandardCharsets.UTF_8);
             } catch (Exception e) {
-                log.debug(MESSAGE, classpath, e);
+                // log.debug(MESSAGE, classpath, e);
             }
         }
         return null;

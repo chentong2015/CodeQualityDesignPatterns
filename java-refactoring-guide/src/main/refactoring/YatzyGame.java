@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 // https://sammancoaching.org/kata_descriptions/yatzy.html
-public class Yatzy {
+public class YatzyGame {
 
     public static int countTargetNumber(int targetNumber, int... diceNums) {
         return countSpecifiedDiceNumber(targetNumber, diceNums);
