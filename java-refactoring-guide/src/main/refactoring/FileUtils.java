@@ -1,4 +1,5 @@
 import java.io.*;
+import java.net.URL;
 import javax.xml.XMLConstants;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -9,7 +10,9 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import javax.xml.parsers.FactoryConfigurationError;
 
-// 垃圾代码的重构逻辑
+import static javax.xml.XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI;
+
+// Java Batch 实战项目源码重构
 public class FileUtils {
 
     private final static String XSD_END_OF_FILE = ".xsd";
@@ -18,12 +21,12 @@ public class FileUtils {
 
     }
 
-    public static void validateXmlFile(String xmlFilePath, String classPathXsdFileName) throws SAXException {
+    public static void validateXmlFile(String xmlFilePath, String classPathXsdFileName) throws Exception {
         File xmlfile = new File(xmlFilePath);
         validateXmlFile(xmlfile, classPathXsdFileName);
     }
 
-    public static void validateXmlFile(File xmlfile, String classPathXsdFileName) throws SAXException {
+    public static void validateXmlFile(File xmlfile, String classPathXsdFileName) throws Exception {
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         InputStream targetStream = null;
         try {
@@ -43,7 +46,7 @@ public class FileUtils {
 
                 //If isNoNamespaceSchemaLocationOfImportedXmlMatchWithInternalXSD is at false no validation of Xml file by .xsd
                 if (!isNoNamespaceSchemaLocationOfImportedXmlMatchWithInternalXSD) {
-                    throw new SAXException();
+                    throw new Exception();
                 }
             }
 
@@ -53,11 +56,15 @@ public class FileUtils {
             validator.validate(new StreamSource(xmlfile));
 
         } catch (IOException ex) {
-            throw new ShouldNeverHappenException(ex);
+            throw new RuntimeException(ex);
         } finally {
             //Closes targetStream and releases any system resources associated with it
             close(targetStream);
         }
+    }
+
+    public static URL getClassPathFileURL(String fileName) {
+        return FileUtils.class.getClassLoader().getResource(fileName);
     }
 
     //Closes stream closeableSourceOrDestination and releases any system resources associated with it
@@ -66,7 +73,7 @@ public class FileUtils {
             try {
                 closeableSourceOrDestination.close();
             } catch (IOException ex) {
-                throw new ShouldNeverHappenException(ex);
+                throw new RuntimeException(ex);
             }
         }
     }
@@ -84,7 +91,7 @@ public class FileUtils {
                 if (XMLStreamReader.START_ELEMENT == eventType) {
                     for (int i = 0; i <= r.getAttributeCount(); i++) {
 
-                        //Check if a tag xsi:schemaLocation, xsi:noNamespaceSchemaLocation ... exists in in .xml file
+                        //Check if a tag xsi:schemaLocation, xsi:noNamespaceSchemaLocation ... exists in .xml file
                         final boolean foundSchemaNameSpace = W3C_XML_SCHEMA_INSTANCE_NS_URI.equals(r.getAttributeNamespace(i));
 
                         if (foundSchemaNameSpace) {
@@ -105,7 +112,7 @@ public class FileUtils {
             }
             return null;
         } catch (FactoryConfigurationError | XMLStreamException e) {
-            throw new ShouldNeverHappenException(e);
+            throw new RuntimeException(e);
         }
     }
 }

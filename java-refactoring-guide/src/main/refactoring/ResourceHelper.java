@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// User Management 实战项目代码重构
 public class ResourceHelper {
 
     private static final String DELIMITER = "/";
