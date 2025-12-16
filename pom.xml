@@ -8,7 +8,7 @@
     <artifactId>CodeQualityDesignPatterns</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>software-concept-principles</module>
+        <module>software-concepts</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
 

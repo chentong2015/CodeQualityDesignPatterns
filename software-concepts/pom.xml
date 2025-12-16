@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>software-concept-principles</artifactId>
+    <artifactId>software-concepts</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
