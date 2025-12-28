@@ -8,16 +8,21 @@ import java.util.stream.IntStream;
 public class OptionalDemo {
 
     public static void main(String[] args) {
-        // 创建一个没有包含元素的Optional容器
         Optional<String> optional = Optional.empty();
-        System.out.println(optional.isPresent());
+        System.out.println(optional.isPresent()); // false
 
-        // OptionalInt int值的一个容器对象, 等效于Optional<Integer>
+        // OptionalInt等效于Optional<Integer>
         OptionalInt sum = OptionalInt.of(0);
-        System.out.println(sum.isPresent());
+        System.out.println(sum.isPresent()); // true
+    }
 
-        OptionalInt total = IntStream.of(1, 2).reduce(Integer::sum);
-        System.out.println(total.isPresent());
-        System.out.println(total.getAsInt());
+    // TODO. Optional + orElse可能存在副作用(Side Effect)
+    // 不适用于方法调用和参数传递
+    // 可以替换成orElseGet保证执行一次
+    private static void testOptionalOrElse() {
+        String str = "xxx";
+        Optional.ofNullable(str)
+                .map(s -> System.out.printf(s + " is not empty \n"))
+                .orElseGet(() -> System.out.printf("invoked !"));
     }
 }
