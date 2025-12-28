@@ -19,8 +19,12 @@ public class OptionalDemo {
     // TODO. Optional + orElse可能存在副作用(Side Effect)
     // 不适用于方法调用和参数传递
     // 可以替换成orElseGet保证执行一次
-    private static void testOptionalOrElse() {
-        String str = "xxx";
+    private static void testOptionalOrElse(String str) {
+        // TODO. orElse中的逻辑保证会被执行 !!
+        Optional.ofNullable(str)
+                .map(s -> System.out.printf(s + " is not empty \n"))
+                .orElse(System.out.printf("invoked !"));
+
         Optional.ofNullable(str)
                 .map(s -> System.out.printf(s + " is not empty \n"))
                 .orElseGet(() -> System.out.printf("invoked !"));
