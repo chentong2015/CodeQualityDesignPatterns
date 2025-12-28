@@ -1,4 +1,4 @@
-package null_optional;
+package null_object;
 
 import jakarta.annotation.Nonnull;
 

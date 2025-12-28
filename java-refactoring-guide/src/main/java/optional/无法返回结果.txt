@@ -1,9 +1,11 @@
-无法返回值时的三种解决办法:
+无法返回值时的三种方案:
 1. throw exception     抛出checked exception会在客户端造成额外的异常处理(样版代码)
 2. return null;        可能被客户端忽略, 造成NullException异常
-3. return Optional<T>; 类似于抛出unchecked exception 可能被用户端忽略
+3. return Optional<T>; 类似于抛出unchecked exception, 可能造成NullException异常
 
-TODO. 什么时候返回Optional<T>而不是T: 当无法返回结果 + 且没有结果时需要调用端执行额外处理
+TODO. 什么时候返回Optional<T>而不是T:
+当无法返回结果 + 且没有结果时需要调用端执行额外处理
 1. 永远不要通过Optional返回Null, 因为.get()获取后同样可能抛出异常
 2. 永远不应该返回"基本包装类型"的Optional, "小型基本类型"除外
+
 https://blogs.oracle.com/javamagazine/post/12-recipes-for-using-the-optional-class-as-its-meant-to-be-used

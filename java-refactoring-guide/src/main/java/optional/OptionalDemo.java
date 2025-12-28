@@ -1,4 +1,4 @@
-package null_optional;
+package optional;
 
 import java.util.Optional;
 import java.util.OptionalInt;

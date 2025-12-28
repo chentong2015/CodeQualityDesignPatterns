@@ -1,7 +1,6 @@
-package null_optional;
+package optional;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 // TODO. 直接从返回的Optional<T>中获取结果可能抛出异常
 public class OptionalTest {

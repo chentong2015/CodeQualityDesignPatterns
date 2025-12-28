@@ -1,4 +1,4 @@
-package null_optional;
+package null_object;
 
 import java.util.Objects;
 
@@ -13,6 +13,7 @@ public class NonnullRequirement {
     }
 
     public static void main(String[] args) {
+
         System.out.println(checkNonNull(null));
     }
 }

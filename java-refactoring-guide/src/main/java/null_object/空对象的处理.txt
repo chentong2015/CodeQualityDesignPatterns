@@ -2,7 +2,7 @@ TODO. Null Object 空对象模式: 避免程序null检测所造成的异常
 确保方法中返回有效的对象，返回"什么都不做的"的对象
 
 TODO. 返回不可变的空集合，而非null
-1. 如果返回空表，最好使用Collections.emptyList; 不可变
-1. 如果返回集合，最好使用Collections.emptySet; 不可变
-2. 如果返回映射，最好使用Collections.emptyMap; 不可变
+1. 如果返回空表，最好使用Collections.emptyList(); 不可变
+1. 如果返回集合，最好使用Collections.emptySet(); 不可变
+2. 如果返回映射，最好使用Collections.emptyMap(); 不可变
 3. 对于返回数组，最好返回零长度的数组Object[]

@@ -1,4 +1,4 @@
-package helper;
+package utils;
 
 // 特殊工具类: 当工具类中混合存在static方法和实例方法时
 public class JavaUtilHelper {
