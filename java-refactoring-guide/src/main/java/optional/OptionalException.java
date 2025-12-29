@@ -2,9 +2,9 @@ package optional;
 
 import java.util.*;
 
-// TODO. 直接从返回的Optional<T>中获取结果可能抛出异常
-public class OptionalTest {
+public class OptionalException {
 
+    // TODO. 直接从Optional<T>中获取结果可能抛出异常
     public static void main(String[] args) {
         Collection<String> words = new ArrayList<>();
         Optional<String> result = max(words);
@@ -23,7 +23,7 @@ public class OptionalTest {
 
         // 3. 通过ifPresent来判断 => 保证成的健壮性
         result.filter(w -> w.equals("no value"))
-                .ifPresent(word -> System.out.println(word));
+              .ifPresent(word -> System.out.println(word));
     }
 
     // Returns an Optional describing the maximum element of this stream,
