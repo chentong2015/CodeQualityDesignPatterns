@@ -1,0 +1,52 @@
+TODO. 对于可恢复的情况(强迫处理)使用checked exception; 对于编程错误使用unchecked exception
+- unchecked exception一般作用在程序错误"programming errors"
+- checked exception用于可以合理期望从异常中恢复，如果无法恢复则使用unchecked exception
+
+1. 如果程序抛出unchecked exception，则表示程序不可恢复，不可在运行下去
+   用RuntimeException运行时异常来表明编程错误
+   The unchecked exception classes are the "run-time exception classes" and the "error classes"
+   RuntimeException and its subclasses + Error and its subclasses
+   - ArrayIndexOutOfBoundsException
+   - ClassCastException
+   - IllegalArgumentException
+   - IllegalStateException
+   - NullPointerException
+   - NumberFormatException
+   - ArithmeticException
+   - AssertionError
+   - ExceptionInInitializerError
+   - StackOverflowError
+   - NoClassDefFoundError
+   - NoSuchElementException
+
+2. 排除掉上面的两个部分的异常，其余所有的都是Checked Exception
+   The checked exception classes are all exception classes other than the unchecked exception classes
+   Throwable and all its subclasses, other than RuntimeException and its subclasses and Error and its subclasses
+   无法忽略的异常(必须提供handler来处理)
+   Exception
+   - IOException              IO异常
+   - FileNotFoundException    文件没有找到
+   - NoSuchFieldException
+   - ParseException           解析异常
+   - ClassNotFoundException   类型没有找到
+   - CloneNotSupportedException
+   - InstantiationException   实例化异常
+   - InterruptedException
+   - NoSuchMethodException
+   - SQLException
+
+
+TODO. Error通常是被JVM保留下来使用，最好不要实现任何Error子类，也不应该抛出AssertionError
+Error extends Throwable, 是所有errors的superclass
+- Error本身是一种unchecked exception
+- 不期望恢复, 一种严重的错误, OOM
+
+
+TODO. 优先考虑使用Java平台的异常，重用代码并减少异常类的装载开销
+不要重用Exception, RuntimeException, Throwable, Error !!
+- IllegalArgumentException
+- IllegalStateException
+- UnsupportedOperationException
+- NotImplementedException
+
+TODO. 异常是可序列化的，尽量不要编写自定义的异常类

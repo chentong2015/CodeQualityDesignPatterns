@@ -5,17 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>CodeQualityDesignPatterns</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>software-concepts</module>
-        <module>java-refactorings</module>
-    </modules>
+    <artifactId>java-code-quality</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
     </properties>
-
 </project>
