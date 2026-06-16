@@ -20,6 +20,11 @@ package interview;
  * - Quality increases by 2 when there are 10 days or less, and by 3 when there are 5 days or less
  * - but Quality drops to 0 after the concert
  */
+
+// TODO. 分类讨论啊
+// 坚持往好的方面想, 保证正确的思路
+// 在垃圾的代码上继续修改, 只能越改越乱
+
 public class GildedRoseKata {
 
     // normally to add private for the field
@@ -28,9 +33,6 @@ public class GildedRoseKata {
     public GildedRoseKata(Item[] items) {
         this.items = items;
     }
-
-    // 坚持往好的方面想, 保证正确的思路
-    // 在垃圾的代码上继续修改, 只能越改越乱
 
     // Comment:
     // part1 - name / Aged Brie
