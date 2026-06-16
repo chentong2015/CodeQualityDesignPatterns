@@ -30,7 +30,7 @@ public class GildedRoseKata {
     }
 
     // 坚持往好的方面想, 保证正确的思路
-    // 在垃圾的代码上继续修改, 只能越该越乱
+    // 在垃圾的代码上继续修改, 只能越改越乱
 
     // Comment:
     // part1 - name / Aged Brie
