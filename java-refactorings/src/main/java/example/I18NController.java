@@ -1,4 +1,4 @@
-package projects;
+package example;
 
 import org.apache.commons.io.IOUtils;
 

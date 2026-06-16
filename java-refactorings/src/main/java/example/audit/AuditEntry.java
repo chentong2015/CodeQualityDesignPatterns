@@ -1,4 +1,4 @@
-package projects.audit;
+package example.audit;
 
 import java.util.Date;
 import java.util.HashMap;

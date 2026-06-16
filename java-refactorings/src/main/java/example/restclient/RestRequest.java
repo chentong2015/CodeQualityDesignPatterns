@@ -1,4 +1,4 @@
-package projects.restclient;
+package example.restclient;
 
 import org.springframework.http.HttpMethod;
 
