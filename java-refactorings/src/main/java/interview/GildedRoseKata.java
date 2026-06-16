@@ -1,7 +1,7 @@
 package interview;
 
 /*
- TODO. 注意题目中给出的案例/类型/测试数据
+ TODO. 一定要理解题目中给出的案例/类型/测试数据
  * We have shop, called GildedRose, holding an inventory of Items
  * Each item has 3 properties:
  * - A name, a string that discriminates the type of item (e.g. tomato, brie, etc)
