@@ -1,4 +1,4 @@
-package refactoring.restclient;
+package projects.restclient;
 
 import org.springframework.http.HttpMethod;
 

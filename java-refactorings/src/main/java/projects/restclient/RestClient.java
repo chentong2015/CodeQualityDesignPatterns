@@ -1,4 +1,4 @@
-package refactoring.restclient;
+package projects.restclient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package refactoring.audit;
+package projects.audit;
 
 import java.util.Date;
 import java.util.HashMap;

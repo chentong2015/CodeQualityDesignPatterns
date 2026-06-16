@@ -1,4 +1,4 @@
-package refactoring.audit;
+package projects.audit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;

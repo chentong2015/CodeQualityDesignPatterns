@@ -1,4 +1,4 @@
-package refactoring;
+package projects;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

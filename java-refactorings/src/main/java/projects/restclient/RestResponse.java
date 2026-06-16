@@ -1,4 +1,4 @@
-package refactoring.restclient;
+package projects.restclient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class RestResponse<T> implements Serializable {
 
     private static final long serialVersionUID = -8655793489572515974L;
@@ -158,31 +159,6 @@ public class RestResponse<T> implements Serializable {
     public RestResponse<T> setErrors(List<RestError> errors) {
         this.errors = errors;
         return this;
-    }
-
-    @JsonIgnore
-    public T getDataAsRecord() {
-        Object o = this.data;
-        if (o instanceof List<T> list) {
-            return (T)(list.size() > 0 ? list.get(0) : null);
-        } else {
-            return (T)o;
-        }
-    }
-
-    @JsonIgnore
-    public List<T> getDataAsList() {
-        Object o = this.data;
-        if (o instanceof List) {
-            return (List)o;
-        } else {
-            List<T> list = new ArrayList();
-            if (o != null) {
-                list.add(o);
-            }
-
-            return list;
-        }
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
