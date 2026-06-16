@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@SuppressWarnings("unchecked")
 public class RestResponse<T> implements Serializable {
 
     private static final long serialVersionUID = -8655793489572515974L;
@@ -166,15 +165,40 @@ public class RestResponse<T> implements Serializable {
         return this.errors != null && !this.errors.isEmpty() ? null : this.data;
     }
 
-    public RestResponse<T> setData(T item) {
-        if (item instanceof List) {
-            this.setDataAsList(item);
-        } else {
-            this.setDataAsRecord(item);
-        }
+    // @JsonIgnore
+    // public T getDataAsRecord() {
+    //     Object o = this.data;
+    //     if (o instanceof List<T> list) {
+    //         return (T)(list.size() > 0 ? list.get(0) : null);
+    //     } else {
+    //         return (T)o;
+    //     }
+    // }
+    //
+    // @JsonIgnore
+    // public List<T> getDataAsList() {
+    //     Object o = this.data;
+    //     if (o instanceof List) {
+    //         return (List)o;
+    //     } else {
+    //         List<T> list = new ArrayList();
+    //         if (o != null) {
+    //             list.add(o);
+    //         }
+    //
+    //         return list;
+    //     }
+    // }
 
-        return this;
-    }
+    // public RestResponse<T> setData(T item) {
+    //     if (item instanceof List) {
+    //         this.setDataAsList(item);
+    //     } else {
+    //         this.setDataAsRecord(item);
+    //     }
+    //
+    //     return this;
+    // }
 
     public RestResponse<T> setDataAsRecord(T item) {
         this.data = item;
@@ -183,29 +207,29 @@ public class RestResponse<T> implements Serializable {
         return this;
     }
 
-    public RestResponse<T> setDataAsList(Object data) {
-        if (data instanceof List<T> list) {
-            this.setCount((long)list.size());
-            if (this.getTotalCount() == null) {
-                this.setTotalCount(this.getCount());
-            }
-
-            if (this.getStartIndex() == null && !list.isEmpty()) {
-                this.setStartIndex(1L);
-            }
-
-            if (this.getEndIndex() == null) {
-                this.setEndIndex(this.getCount());
-            }
-
-            this.setMessage(this.getCount() + " record(s) retrieved.");
-            this.data = data;
-        } else {
-            this.setDataAsList(Arrays.asList(data));
-        }
-
-        return this;
-    }
+    // public RestResponse<T> setDataAsList(Object data) {
+    //     if (data instanceof List<T> list) {
+    //         this.setCount((long)list.size());
+    //         if (this.getTotalCount() == null) {
+    //             this.setTotalCount(this.getCount());
+    //         }
+    //
+    //         if (this.getStartIndex() == null && !list.isEmpty()) {
+    //             this.setStartIndex(1L);
+    //         }
+    //
+    //         if (this.getEndIndex() == null) {
+    //             this.setEndIndex(this.getCount());
+    //         }
+    //
+    //         this.setMessage(this.getCount() + " record(s) retrieved.");
+    //         this.data = data;
+    //     } else {
+    //         this.setDataAsList(Arrays.asList(data));
+    //     }
+    //
+    //     return this;
+    // }
 
     @JsonIgnore
     public boolean isSuccess() {
