@@ -1,4 +1,4 @@
-package interview;
+package interview.game;
 
 import java.util.Arrays;
 

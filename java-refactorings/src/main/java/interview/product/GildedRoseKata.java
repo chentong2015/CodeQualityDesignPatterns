@@ -1,7 +1,9 @@
-package interview;
+package interview.product;
+
+import interview.product.model.Item;
 
 /*
- TODO. 一定要理解题目中给出的案例/类型/测试数据
+ TODO. 一定要理解重构前的Feature逻辑, 分析案例和代码测试数据
  * We have shop, called GildedRose, holding an inventory of Items
  * Each item has 3 properties:
  * - A name, a string that discriminates the type of item (e.g. tomato, brie, etc)
@@ -16,15 +18,9 @@ package interview;
  * "Aged Brie" actually increases in Quality the older it gets
  * "Sulfuras, Hand of Ragnaros", being a legendary item, never has to be sold or decreases in Quality
  * "Backstage passes to a TAFKAL80ETC concert", like aged brie, increases in Quality as its SellIn value approaches 0
- *
- * - Quality increases by 2 when there are 10 days or less, and by 3 when there are 5 days or less
- * - but Quality drops to 0 after the concert
+ *   - Quality increases by 2 when there are 10 days or less, and by 3 when there are 5 days or less
+ *   - but Quality drops to 0 after the concert
  */
-
-// TODO. 分类讨论啊
-// 坚持往好的方面想, 保证正确的思路
-// 在垃圾的代码上继续修改, 只能越改越乱
-
 public class GildedRoseKata {
 
     // normally to add private for the field
@@ -34,6 +30,9 @@ public class GildedRoseKata {
         this.items = items;
     }
 
+    // TODO. 分类讨论啊
+    // 坚持往好的方面想, 保证正确的思路
+    // 在垃圾的代码上继续修改, 只能越改越乱
     // Comment:
     // part1 - name / Aged Brie
     // part2 - "Sulfuras, Hand of Ragnaros"
@@ -110,23 +109,4 @@ public class GildedRoseKata {
             }
         }
     }
-
-    class Item {
-
-        public String name;
-        public int sellIn;
-        public int quality;
-
-        public Item(String name, int sellIn, int quality) {
-            this.name = name;
-            this.sellIn = sellIn;
-            this.quality = quality;
-        }
-
-        @Override
-        public String toString() {
-            return this.name + ", " + this.sellIn + ", " + this.quality;
-        }
-    }
-
 }
