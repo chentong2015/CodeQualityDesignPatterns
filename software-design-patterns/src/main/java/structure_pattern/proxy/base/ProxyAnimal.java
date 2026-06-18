@@ -1,4 +1,4 @@
-package structure_pattern.proxy.static_proxy;
+package structure_pattern.proxy.base;
 
 // 该类型可以代理任何实现Animal接口的类型，隔离了对实现类型的直接调用
 public class ProxyAnimal implements Animal {

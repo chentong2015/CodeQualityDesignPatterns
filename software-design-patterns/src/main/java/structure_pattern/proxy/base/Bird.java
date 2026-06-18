@@ -1,4 +1,4 @@
-package structure_pattern.proxy.static_proxy;
+package structure_pattern.proxy.base;
 
 public class Bird implements Animal {
 

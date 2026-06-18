@@ -1,4 +1,4 @@
-package structure_pattern.proxy.static_proxy;
+package structure_pattern.proxy.base;
 
 // 静态代理：
 // 1. 在"编译时"确定, 无需反射, 必须为每个被代理对象创建一个代理类

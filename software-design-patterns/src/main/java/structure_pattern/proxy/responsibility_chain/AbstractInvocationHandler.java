@@ -1,4 +1,4 @@
-package structure_pattern.proxy.jdk.chain_of_resp;
+package structure_pattern.proxy.responsibility_chain;
 
 import java.lang.reflect.InvocationHandler;
 
