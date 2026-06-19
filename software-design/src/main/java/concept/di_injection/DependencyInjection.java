@@ -1,4 +1,4 @@
-package concepts.di_injection;
+package concept.di_injection;
 
 public class DependencyInjection {
 

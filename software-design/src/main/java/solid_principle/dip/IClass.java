@@ -1,4 +1,4 @@
-package solid_principles.dip;
+package solid_principle.dip;
 
 public interface IClass {
 

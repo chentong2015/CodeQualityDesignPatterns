@@ -1,4 +1,4 @@
-package solid_principles.srp;
+package solid_principle.srp;
 
 // SRP 单一职责
 // Single Responsibility Principles

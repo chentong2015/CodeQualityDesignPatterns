@@ -1,4 +1,4 @@
-package solid_principles.isp;
+package solid_principle.isp;
 
 // ISP 接口隔离
 // Interface Segregation Principle

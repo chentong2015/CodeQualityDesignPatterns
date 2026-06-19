@@ -1,4 +1,4 @@
-package solid_principles.lsp.demo1;
+package solid_principle.lsp.demo1;
 
 public class MyRectangle {
 

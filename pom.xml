@@ -8,8 +8,8 @@
     <artifactId>CodeQualityDesignPatterns</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>software-concepts</module>
-        <module>java-refactorings</module>
+        <module>software-design</module>
+        <module>java-refactoring</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
 

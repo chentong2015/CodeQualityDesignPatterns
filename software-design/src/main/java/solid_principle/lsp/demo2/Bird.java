@@ -1,4 +1,4 @@
-package solid_principles.lsp.demo2;
+package solid_principle.lsp.demo2;
 
 public class Bird {
 
