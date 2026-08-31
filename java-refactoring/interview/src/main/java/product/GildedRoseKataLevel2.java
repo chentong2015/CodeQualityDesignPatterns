@@ -1,6 +1,5 @@
 package product;
 
-import interview.product.handler.*;
 import product.handler.*;
 import product.model.Item;
 
