@@ -1,0 +1,88 @@
+package com.livecodingexercise.domain;
+
+public class SearchResult {
+
+    private Long id;
+    private String departure;
+    private String arrival;
+    private String driverName;
+    private Integer distance;
+    private Double priceAmount;
+    private String priceCurrency;
+    private String formattedPrice;
+
+    public SearchResult(Long id, String departure, String arrival, String driverName, Integer distance, Double priceAmount, String priceCurrency, String formattedPrice) {
+        this.id = id;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.driverName = driverName;
+        this.distance = distance;
+        this.priceAmount = priceAmount;
+        this.priceCurrency = priceCurrency;
+        this.formattedPrice = formattedPrice;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public String getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
+    }
+
+    public Double getPriceAmount() {
+        return priceAmount;
+    }
+
+    public void setPriceAmount(Double priceAmount) {
+        this.priceAmount = priceAmount;
+    }
+
+    public String getPriceCurrency() {
+        return priceCurrency;
+    }
+
+    public void setPriceCurrency(String priceCurrency) {
+        this.priceCurrency = priceCurrency;
+    }
+
+    public String getFormattedPrice() {
+        return formattedPrice;
+    }
+
+    public void setFormattedPrice(String formattedPrice) {
+        this.formattedPrice = formattedPrice;
+    }
+}
