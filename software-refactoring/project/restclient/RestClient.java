@@ -1,4 +1,4 @@
-package project.restclient;
+package restclient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +7,8 @@ import org.springframework.http.*;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
+import restclient.RestRequest;
+import restclient.RestResponse;
 
 import java.util.function.Function;
 

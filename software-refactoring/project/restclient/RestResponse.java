@@ -1,4 +1,4 @@
-package project.restclient;
+package restclient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

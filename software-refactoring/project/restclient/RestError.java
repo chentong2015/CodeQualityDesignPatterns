@@ -1,4 +1,4 @@
-package project.restclient;
+package restclient;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;

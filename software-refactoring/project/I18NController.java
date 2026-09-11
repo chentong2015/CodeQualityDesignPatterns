@@ -1,5 +1,3 @@
-package project;
-
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;

@@ -1,5 +1,3 @@
-package project;
-
 import java.io.*;
 import java.net.URL;
 import javax.xml.XMLConstants;
