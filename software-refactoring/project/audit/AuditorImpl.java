@@ -44,7 +44,7 @@ public class AuditorImpl {
         }
     }
 
-    public void log(project.audit.AuditEntry entry) {
+    public void log(AuditEntry entry) {
         if (overflow) {
             logger.error("Audit queue overflow. Audit entry can not be send: " + entry);
             return;
@@ -79,7 +79,7 @@ public class AuditorImpl {
 
     // No need to be thread safe, queuePath have to be a unique temporary file
     // Return the size of the queue: the number of audit lines processed included those in error.
-    private long sendQueue(Function<project.audit.AuditEntry, SendingResult> sender) {
+    private long sendQueue(Function<AuditEntry, SendingResult> sender) {
         long auditCount = 0L;
 
         Path queuePath = null;
@@ -106,7 +106,7 @@ public class AuditorImpl {
                             writer.write(line);
                             writer.newLine();
                         }
-                        project.audit.AuditEntry auditEntry = mapper.readValue(line, project.audit.AuditEntry.class);
+                        AuditEntry auditEntry = mapper.readValue(line, AuditEntry.class);
                         SendingResult status = SendingResult.FAILED;
                         try {
                             status = sender.apply(auditEntry);
@@ -253,7 +253,7 @@ public class AuditorImpl {
         });
     }
 
-    private void queueEvent(project.audit.AuditEntry... entries) {
+    private void queueEvent(AuditEntry... entries) {
 
         if (null == entries || 0 == entries.length) {
             return;
@@ -264,7 +264,7 @@ public class AuditorImpl {
             try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(queueFile, true), "UTF-8"))) {
 
                 ObjectMapper mapper = new ObjectMapper();
-                for (project.audit.AuditEntry entry : entries) {
+                for (AuditEntry entry : entries) {
                     try {
                         if (logger.isTraceEnabled()) {
                             logger.trace("Queueing audit event " + entry + " to " + queueFile.getName());
@@ -285,7 +285,7 @@ public class AuditorImpl {
     }
 
     public void log(String businessUnitId, String operatorId, String eventId) {
-        project.audit.AuditEntry entry = new project.audit.AuditEntry();
+        AuditEntry entry = new AuditEntry();
         entry.setBusinessUnitId(businessUnitId);
         entry.setEventId(eventId);
         entry.setOperatorId(operatorId);
@@ -365,7 +365,7 @@ public class AuditorImpl {
             }
         }
 
-        private boolean isValidDataRawSize(project.audit.AuditEntry auditEntry) {
+        private boolean isValidDataRawSize(AuditEntry auditEntry) {
             ObjectMapper jsonMapper = new ObjectMapper();
             try {
                 String strDataRaw = jsonMapper.writeValueAsString(auditEntry.getObjectProperties());
