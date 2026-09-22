@@ -1,40 +1,36 @@
 package optional;
 
-import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.stream.IntStream;
+import java.util.*;
 
 // TODO. 从optional读取时需要额外的开销，不利于性能
 public class OptionalDemo {
 
+    // TODO. 直接从Optional<T>中获取结果可能抛出异常
     public static void main(String[] args) {
-        Optional<String> optional = Optional.empty();
-        System.out.println(optional.isPresent()); // false
+        Collection<String> words = new ArrayList<>();
+        Optional<String> result = max(words);
 
-        // OptionalInt等效于Optional<Integer>
-        OptionalInt sum = OptionalInt.of(0);
-        System.out.println(sum.isPresent()); // true
+        // java.util.NoSuchElementException: No value present
+        String result0 = result.get();
 
-        testOptionalOrElse(null);
+        // 1. 先判断存在再获取值
+        if (result.isPresent()) {
+            System.out.println(result.get());
+        }
+
+        // 2. 通过orElse来返回默认值
+        String result1 = result.orElse("no max");
+        String result2 = result.orElseThrow(() -> new RuntimeException("no max"));
+
+        // 3. 通过ifPresent来判断 => 保证成的健壮性
+        result.filter(w -> w.equals("no value"))
+              .ifPresent(word -> System.out.println(word));
     }
 
-    // TODO. Optional.ofNullable() 常用于null空对象的判断逻辑, 替换if-else逻辑
-    private static void testOptionalOrElse(String str) {
-        // orElse可能存在副作用: 因为printf的返回值是PrintStream !!
-        Optional.ofNullable(str)
-                .map(s -> System.out.printf(s + " is not empty \n"))
-                .orElse(System.out.printf("orElse invoked !"));
-
-        // 无副作用: orElseGet只有在Optional为空时才会执行
-        Optional.ofNullable(str)
-                .map(s -> System.out.printf(s + " is not empty \n"))
-                .orElseGet(() -> System.out.printf("orElseGet invoked !")); // 不一定执行 !!
-
-        // 无副作用: 使用boolean字面量值返回正确判断结果
-        boolean result = Optional.ofNullable(str)
-                .filter(String.class::isInstance)
-                .map(s -> !s.isBlank())
-                .orElse(false);
-        System.out.println(result);
+    // Returns an Optional describing the maximum element of this stream,
+    // or an empty Optional if the stream is empty
+    public static <E extends Comparable<E>> Optional<E> max(Collection<E> collection) {
+        return collection.stream()
+                .max(Comparator.naturalOrder());
     }
 }
