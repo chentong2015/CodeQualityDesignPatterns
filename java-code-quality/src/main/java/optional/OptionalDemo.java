@@ -10,12 +10,16 @@ public class OptionalDemo {
         Collection<String> words = new ArrayList<>();
         Optional<String> result = max(words);
 
+        // 直接调空抛出异常
         // java.util.NoSuchElementException: No value present
         String result0 = result.get();
 
         // 1. 先判断存在再获取值
         if (result.isPresent()) {
             System.out.println(result.get());
+        }
+        if (result.isEmpty()) {
+            System.out.println("Is empty");
         }
 
         // 2. 通过orElse来返回默认值
@@ -30,7 +34,6 @@ public class OptionalDemo {
     // Returns an Optional describing the maximum element of this stream,
     // or an empty Optional if the stream is empty
     public static <E extends Comparable<E>> Optional<E> max(Collection<E> collection) {
-        return collection.stream()
-                .max(Comparator.naturalOrder());
+        return collection.stream().max(Comparator.naturalOrder());
     }
 }
