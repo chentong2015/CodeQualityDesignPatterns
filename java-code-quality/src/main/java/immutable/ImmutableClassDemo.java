@@ -30,6 +30,8 @@ public class ImmutableClassDemo {
     public static void main(String[] args) {
         ImmutableClassDemo demo = new ImmutableClassDemo("name", new Date());
         String name = demo.getName();
+
+        // 对于String类型而言, 外部的修改不能改变对象的属性值(保持不可变性)
         name = "new name";
         System.out.println(demo.getName());
 

@@ -1,4 +1,4 @@
-package pattern_structure.proxy.responsibility_chain;
+package pattern_structure.responsibility_chain;
 
 import java.lang.reflect.Method;
 

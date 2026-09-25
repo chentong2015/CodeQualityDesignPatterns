@@ -1,4 +1,4 @@
-package pattern_structure.proxy.jdk.model;
+package pattern_structure.proxy.jdk.base;
 
 public interface Person {
 

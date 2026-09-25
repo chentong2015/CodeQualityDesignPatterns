@@ -1,6 +1,9 @@
-TODO. 如果被代理的类型实现了接口，则选择JdkDynamicAopProxy代理模式
-JdkDynamicAopProxy: 适用于代理的类型实现了接口, 类似于“装饰模式”
-   Proxy.newProxyInstance(classLoader, this.proxiedInterfaces, this);
+TODO: "动态"是指在程序运行时基于反射动态的创建出动态代理类，而不在"编译"期间确定
+JDK动态代理的特点: 只能代理实现接口的类 & 代理类必须继承Proxy类
+如果被代理的类型实现了接口, 则选择JdkDynamicAopProxy代理模式
+JdkDynamicAopProxy适用于代理的类型实现了接口, 类似于“装饰模式”
+
+Proxy.newProxyInstance(classLoader, this.proxiedInterfaces, this);
 
 DefaultAopProxyFactory.createAopProxy()
     @Override
@@ -16,3 +19,5 @@ DefaultAopProxyFactory.createAopProxy()
    		return new JdkDynamicAopProxy(main.config);
    	}
 }
+
+ https://docs.oracle.com/javase/7/docs/technotes/guides/reflection/proxy.html

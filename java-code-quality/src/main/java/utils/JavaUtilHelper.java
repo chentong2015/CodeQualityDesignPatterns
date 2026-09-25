@@ -13,8 +13,7 @@ public class JavaUtilHelper {
         UTIL_HELPER.test2();
     }
 
-    // 私有的构造器约束了以下实例方法不能被外部调用到
-    // 与改实例方法定义的可访问性无关
+    // 即使设置public修饰符也无法被外部访问(无法在外部创建对象)
     public void test2() {
         System.out.println("test2");
     }

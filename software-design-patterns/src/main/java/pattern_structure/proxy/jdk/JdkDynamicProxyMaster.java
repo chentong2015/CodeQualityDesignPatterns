@@ -1,9 +1,9 @@
 package pattern_structure.proxy.jdk;
 
 import pattern_structure.proxy.ProxyHelper;
-import pattern_structure.proxy.jdk.model.Person;
-import pattern_structure.proxy.jdk.model.PersonImpl;
-import pattern_structure.proxy.jdk.model.PersonInvocationHandler;
+import pattern_structure.proxy.jdk.base.Person;
+import pattern_structure.proxy.jdk.base.PersonImpl;
+import pattern_structure.proxy.jdk.handler.PersonInvocationHandler;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
