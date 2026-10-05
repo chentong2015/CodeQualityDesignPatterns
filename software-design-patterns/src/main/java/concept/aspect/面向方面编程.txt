@@ -1,8 +1,0 @@
-Aspect Oriented Programming (AOP)
-1. increase modularity by allowing the separation of cross-cutting concerns.
-2. adding additional behavior to existing code without modification of the code.
-3. declare separately which code is to modify.
-
-面向方面编程思想 => 区别Helper类
-- 将相同功能的"非业务代码"隔离出来(日志，性能监控，读写分离)
-- 切面代码独立完成一套额外逻辑(对于主流逻辑不可见)

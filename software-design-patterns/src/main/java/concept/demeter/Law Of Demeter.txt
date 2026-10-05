@@ -1,3 +1,0 @@
-Law Of Demeter: 迪米特法则
-The Least Knowledge Principle: 最少知识原则
-一个对象应该对其他对象保持最少的了解，一种降低耦合的设计
